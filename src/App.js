@@ -1,16 +1,16 @@
 import "./App.css";
 import Header from "./components/Header";
 import Form from "./components/Form";
-import Resultaat from "./components/Resultaat";
+import Results from "./components/Results";
 import Footer from "./components/Footer";
+import { useState } from "react";
 
 const App = () => {
-
   return (
     <>
       <Header/>
       <Form/>
-      <Resultaat/>
+      <Results/>
       <Footer/>
     </>
     );
