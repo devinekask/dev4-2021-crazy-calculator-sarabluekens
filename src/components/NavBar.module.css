@@ -1,0 +1,21 @@
+@value tokens: "../style/tokens.module.css";
+@value fontSizeL, primaryColor from tokens;
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.link {
+  text-decoration: none;
+  font-size: fontSizeL;
+  padding: 0.5rem;
+}
+
+.active {
+  background-color: primaryColor;
+  color: white;
+  text-decoration: underline;
+}

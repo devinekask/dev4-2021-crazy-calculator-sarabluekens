@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from "prop-types";
+
 
 const RadioResult = ({locationIndex, locations}) => {
     return (  
@@ -9,4 +11,8 @@ const RadioResult = ({locationIndex, locations}) => {
     );
 }
  
+RadioResult.propTypes = {
+    locationIndex : PropTypes.string,
+    locations : PropTypes.array.isRequired
+}
 export default RadioResult;

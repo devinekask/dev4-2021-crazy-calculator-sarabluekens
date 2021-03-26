@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from "prop-types";
+
 
 const DropdownOption = ({points, description}) => {
     return ( 
@@ -6,4 +8,9 @@ const DropdownOption = ({points, description}) => {
      );
 }
  
+DropdownOption.propTypes = {
+    points : PropTypes.number.isRequired,
+    description : PropTypes.string.isRequired
+  
+}
 export default DropdownOption;

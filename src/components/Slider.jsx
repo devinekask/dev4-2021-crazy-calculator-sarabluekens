@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from "prop-types";
+
 
 const Slider = ({ value, onNumberChange}) => {
     return (  
@@ -11,4 +13,8 @@ const Slider = ({ value, onNumberChange}) => {
     );
 }
  
+Slider.propTypes = {
+    value : PropTypes.number.isRequired,
+    onNumberChange : PropTypes.func.isRequired
+}
 export default Slider;

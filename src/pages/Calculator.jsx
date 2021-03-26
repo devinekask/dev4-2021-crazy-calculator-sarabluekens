@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import Text from './Text';
-import Slider from './Slider';
-import Radio from './Radio';
-import Dropdown from './Dropdown';
-import SliderResult from './SliderResult';
-import DropdownResult from './DropdownResult';
-import RadioResult from './RadioResult';
-import TextResult from './TextResult';
+import Text from '../components/Text';
+import Slider from '../components/Slider';
+import Radio from '../components/Radio';
+import Dropdown from '../components/Dropdown';
+import SliderResult from '../components/SliderResult';
+import DropdownResult from '../components/DropdownResult';
+import RadioResult from '../components/RadioResult';
+import TextResult from '../components/TextResult';
+import PropTypes from "prop-types";
 
 
-const Calculator = ({ways, locations}) => {
+
+const Calculator = ({ways, locations, subtitle}) => {
     const [number, setNumber] = useState(0); 
     const [name, setName] = useState(""); 
     const [killDropdown, setKillDropdown] = useState(0);
@@ -109,7 +111,7 @@ const Calculator = ({ways, locations}) => {
 
     let wayIndex;
     const points = parseInt(killDropdown) + parseInt(keepDropdown) + parseInt(dumpDropdown);
-   
+   parseInt(points);
     if (name === 'Benoit'|| name === 'benoit' || name === 'simon' || name === 'Simon') {
         wayIndex = 4;
     }
@@ -128,16 +130,16 @@ const Calculator = ({ways, locations}) => {
     return (
         <>
             <section className = "form">
-                <h2>Fill in this form and discover your faith, if you dare...</h2>
+                <h2 className="hidden">Form</h2>
                 <form> 
                     < Text value={name} onNameChange={(value => setName(value))}/>
-                    < Slider value={number} onNumberChange={(value) => setNumber(value)}  />
+                    < Slider value={parseInt(number)} onNumberChange={(value) => setNumber(value)}  />
                     <Radio list={fear} value={radio} onRadioChange={(value) => setRadio(value)}/>
-                    < Dropdown type="kill" label="I will Kill my:" list={kill} value={killDropdown} onDropdownChange={(value) => setKillDropdown(value)} />
+                    < Dropdown type="kill" label="I will Kill my:" list={kill} value={parseInt(killDropdown)} onDropdownChange={(value) => setKillDropdown(value)} />
                     <p>Added penaltypoints: + {killDropdown}</p>
-                    < Dropdown type="dump" label=", dump my:" list={dump} value={dumpDropdown} onDropdownChange={(value) => setDumpDropdown(value)} />
+                    < Dropdown type="dump" label=", dump my:" list={dump} value={parseInt(dumpDropdown)} onDropdownChange={(value) => setDumpDropdown(value)} />
                     <p>Added penaltypoints: + {dumpDropdown}</p>
-                    < Dropdown type="keep" label="And I want to keep my:" list={keep} value={keepDropdown} onDropdownChange={(value) => setKeepDropdown(value)} />
+                    < Dropdown type="keep" label="And I want to keep my:" list={keep} value={parseInt(keepDropdown)} onDropdownChange={(value) => setKeepDropdown(value)} />
                     <p>Added penaltypoints: + {keepDropdown}</p>
                 </form>
             </section>
@@ -154,4 +156,8 @@ const Calculator = ({ways, locations}) => {
     );
 };
 
+Calculator.propTypes = {
+    ways : PropTypes.array.isRequired,
+    locations : PropTypes.array.isRequired
+}
 export default Calculator;

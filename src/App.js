@@ -1,9 +1,12 @@
 import "./App.css";
 import Header from "./components/Header";
-import Calculator from "./components/Calculator";
-
+import Calculator from "./pages/Calculator";
+import { Route, Switch } from "react-router-dom";
+import { ROUTES } from "./consts";
 import Footer from "./components/Footer";
-
+import NavBar from "./components/Navbar";
+import Home from "./pages/Home";
+import All from "./pages/All";
 
 const App = () => {
   const ways = [ "Unknown yet, make a choice.",
@@ -16,8 +19,26 @@ const App = () => {
 
   return (
     <>
-      <Header/>
-        <Calculator ways={ways} locations={locations}/>
+    
+      <NavBar/>
+      
+      <Switch>
+          <Route path={ROUTES.CALCULATOR}>
+            <Header subtitle="Use this calculor to find out what will ultimately kill you."/>
+            <Calculator ways={ways} locations={locations}/>
+          </Route>
+
+          <Route path={ROUTES.ALL}>
+            <Header subtitle="On this page you find all possible results:"/>
+            <All ways={ways} locations={locations} />
+          </Route>
+
+          <Route path={ROUTES.HOME}>
+            <Home />
+          </Route>
+
+        </Switch>
+      
       <Footer/>
     </>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 const DropdownResult = ({ways, index}) => {
     return (  
@@ -8,4 +9,9 @@ const DropdownResult = ({ways, index}) => {
     );
 }
  
+DropdownResult.propTypes = {
+    ways : PropTypes.array.isRequired,
+    index : PropTypes.number.isRequired
+}
+
 export default DropdownResult;

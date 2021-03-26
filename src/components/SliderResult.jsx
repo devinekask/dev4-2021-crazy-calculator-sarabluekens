@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from "prop-types";
+
 
 const SliderResult = ({age, title, number}) => {
     return ( 
@@ -8,5 +10,9 @@ const SliderResult = ({age, title, number}) => {
         </>
     );
 }
- 
+SliderResult.propTypes = {
+    age : PropTypes.number.isRequired,
+    title : PropTypes.string.isRequired,
+    number : PropTypes.number.isRequired
+}
 export default SliderResult;
