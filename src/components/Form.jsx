@@ -9,9 +9,10 @@ import { reactComponent as Kitten } from '../assets/img/kitten.png';
 const Form = () => {
     const [number, setNumber] = useState(0); 
     const [name, setName] = useState("");
-    const [killDropdown, setKillDropdown] = useState("Make a choice")
-    const [dumpDropdown, setDumpDropdown] = useState("Make a choice")
-    const [keepDropdown, setKeepDropdown] = useState("Make a choice")
+    const [killDropdown, setKillDropdown] = useState("Make a choice");
+    const [dumpDropdown, setDumpDropdown] = useState("Make a choice");
+    const [keepDropdown, setKeepDropdown] = useState("Make a choice");
+    const [radio, setRadio] = useState();
 
     const kill = [
         {
@@ -71,23 +72,44 @@ const Form = () => {
         }
     ]
 
-
+    const fear = [
+        {
+            label : "dark",
+            description : "The dark"
+            
+        },
+        {
+            label : "needles",
+            description : "Needles"
+        },
+        {
+            label : "space",
+            description : "Thight spaces"
+        },
+        {
+            label : "spiders",
+            description : "Spiders"
+        },
+        {
+            label : "code",
+            description : " `Failed to compile`"
+        }
+    ]
     return (
         <section className = "form">
            <h2>Fill in this form and discover your faith, if you dare...</h2>
-
             <form>
+               
                 < Text value={name} onNameChange={(value => setName(value))}/>
                 <p>Hello There: {name}</p>
                 < Slider value={number} onNumberChange={(value) => setNumber(value)}  />
-                < Radio />
+                <Radio list={fear} value={radio} onDropdownChange={(value) => setRadio(value)}/>
                 < Dropdown type="kill" label="I will Kill my:" list={kill} value={killDropdown} onDropdownChange={(value) => setKillDropdown(value)} />
                 <p>Added penaltypoints: + {killDropdown}</p>
                 < Dropdown type="dump" label=", dump my:" list={dump} value={dumpDropdown} onDropdownChange={(value) => setDumpDropdown(value)} />
                 <p>Added penaltypoints: + {dumpDropdown}</p>
                 < Dropdown type="keep" label="And I want to keep my:" list={keep} value={keepDropdown} onDropdownChange={(value) => setKeepDropdown(value)} />
                 <p>Added penaltypoints: + {keepDropdown}</p>
-
             </form>
         </section>
     );

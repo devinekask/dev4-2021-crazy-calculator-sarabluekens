@@ -1,26 +1,13 @@
 import React from 'react';
+import RadioOption from './RadioOption';
 
-const Radio = () => {
+const Radio = ({list}) => {
     return (  
         <>
-        <label htmlFor="fear"> True horror</label> 
-
-            <br/>
-            <input type="radio" id="dark" name="fear" value="dark"/>
-            <label htmlFor="dark">The dark</label><br/>
-
-            <input type="radio" id="needles" name="fear" value="needles"/>
-            <label htmlFor="needles">Needles</label><br/>
-
-            <input type="radio" id="space" name="fear" value="space"/>
-            <label htmlFor="space">Thight spaces</label><br/>
-
-            <input type="radio" id="spspidersace" name="fear" value="spiders"/>
-            <label htmlFor="spiders">Spiders</label><br/>
-
-            <input type="radio" id="code" name="fear" value="code"/>
-            <label htmlFor="code">"Failed to compile"</label><br/>
-            <p > Keep-Ditch-Kill</p> 
+        <label htmlFor="fear"> True horror: select your biggest fear</label> 
+           {list.map(item => 
+                <RadioOption label={item.label} description={item.description}/>
+            )}
         </>
     );
 }
