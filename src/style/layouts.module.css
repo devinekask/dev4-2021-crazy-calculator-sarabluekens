@@ -1,0 +1,24 @@
+@value tokens: "./tokens.module.css";
+@value primaryColor,backgroundColor, accentColor,subtitleFont from tokens;
+
+
+body {
+  background-image:url("../assets/img/grain.png") ;
+  background-color: backgroundColor;
+}
+
+
+.title {
+  color: primaryColor;
+
+}
+
+.formItem {
+  padding: 1rem 0;
+}
+
+.resultOutput {
+  color: accentColor;
+  font-size: subtitleFont;
+  margin: 1rem;
+}

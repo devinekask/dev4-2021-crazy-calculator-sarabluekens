@@ -8,12 +8,12 @@ import DropdownResult from '../components/DropdownResult';
 import RadioResult from '../components/RadioResult';
 import TextResult from '../components/TextResult';
 import PropTypes from "prop-types";
-
+import styles from "./Calculator.module.css";
 
 
 const Calculator = ({ways, locations, subtitle}) => {
     const [number, setNumber] = useState(0); 
-    const [name, setName] = useState(""); 
+    const [name, setName] = useState(" "); 
     const [killDropdown, setKillDropdown] = useState(0);
     const [dumpDropdown, setDumpDropdown] = useState(0);
     const [keepDropdown, setKeepDropdown] = useState(0);
@@ -101,7 +101,7 @@ const Calculator = ({ways, locations, subtitle}) => {
         },
         {
             label : "code",
-            description : " `Failed to compile`",
+            description : " Failed to compile ",
             index : 4
         }
     ]
@@ -112,7 +112,7 @@ const Calculator = ({ways, locations, subtitle}) => {
     let wayIndex;
     const points = parseInt(killDropdown) + parseInt(keepDropdown) + parseInt(dumpDropdown);
    parseInt(points);
-    if (name === 'Benoit'|| name === 'benoit' || name === 'simon' || name === 'Simon') {
+    if (name.includes( 'Benoit')|| name.includes( 'benoit') || name.includes( 'simon') || name.includes( 'Simon')) {
         wayIndex = 4;
     }
     else if(points < 3) {
@@ -128,31 +128,30 @@ const Calculator = ({ways, locations, subtitle}) => {
     let locationIndex = radio;
 
     return (
-        <>
-            <section className = "form">
-                <h2 className="hidden">Form</h2>
-                <form> 
+        <div className ={styles.flex}>
+            <section className ={styles.styling}>
+                <h2 className ={styles.title}>Fill in these fields and find out!</h2>
+                <form className ={styles.form}> 
                     < Text value={name} onNameChange={(value => setName(value))}/>
                     < Slider value={parseInt(number)} onNumberChange={(value) => setNumber(value)}  />
                     <Radio list={fear} value={radio} onRadioChange={(value) => setRadio(value)}/>
-                    < Dropdown type="kill" label="I will Kill my:" list={kill} value={parseInt(killDropdown)} onDropdownChange={(value) => setKillDropdown(value)} />
-                    <p>Added penaltypoints: + {killDropdown}</p>
-                    < Dropdown type="dump" label=", dump my:" list={dump} value={parseInt(dumpDropdown)} onDropdownChange={(value) => setDumpDropdown(value)} />
-                    <p>Added penaltypoints: + {dumpDropdown}</p>
-                    < Dropdown type="keep" label="And I want to keep my:" list={keep} value={parseInt(keepDropdown)} onDropdownChange={(value) => setKeepDropdown(value)} />
-                    <p>Added penaltypoints: + {keepDropdown}</p>
+
+                    <h3 > Choose a Kill, Dump and Keep:</h3>
+                    < Dropdown type="kill" label=" Kill:" list={kill} value={parseInt(killDropdown)} onDropdownChange={(value) => setKillDropdown(value)} /> <br/>
+                    < Dropdown type="dump" label="Dump:" list={dump} value={parseInt(dumpDropdown)} onDropdownChange={(value) => setDumpDropdown(value)} /> <br/>
+                    < Dropdown type="keep" label="Keep:" list={keep} value={parseInt(keepDropdown)} onDropdownChange={(value) => setKeepDropdown(value)} /> <br/>
                 </form>
             </section>
 
-            <section className = "form">
+            <section className ={styles.styling}>
+                <h2 className ={styles.title}> In Loving memory of </h2>
                 <TextResult name={name}/>
-                <p>Are you ready to face <span>death?</span></p>
-                <SliderResult title="Age of death: " age={Math.floor(age)} number={amount}/>
-                <RadioResult locations={locations} locationIndex={locationIndex} />
-                <DropdownResult ways={ways} index={wayIndex} />
+                <SliderResult title="Age" age={Math.floor(age)} number={amount}/>
+                <RadioResult title="Died" locations={locations} locationIndex={locationIndex} />
+                <DropdownResult title="Cause" ways={ways} index={wayIndex} />
              
             </section>
-        </>
+        </div>
     );
 };
 

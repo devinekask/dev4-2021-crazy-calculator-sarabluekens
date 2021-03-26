@@ -1,0 +1,15 @@
+@value tokens: "../style/tokens.module.css";
+@value accentColor from tokens;
+
+.formItem {
+    composes: formItem from "../style/layouts.module.css"
+}
+
+.output {
+    composes: resultOutput from "../style/layouts.module.css"
+}
+
+
+.formLabel {
+    composes: formText from "../style/typo.module.css";
+}

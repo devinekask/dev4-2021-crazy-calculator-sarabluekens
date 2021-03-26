@@ -1,0 +1,20 @@
+@value tokens: "../style/tokens.module.css";
+@value secondaryColor, primaryColor, smallFont from tokens;
+
+.footer {
+    color: secondaryColor ;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+
+
+    margin-top: 10rem;
+}
+
+.footerTitle {
+    display: none;
+}
+
+.footerText{
+   composes: footer from "../style/typo.module.css";
+}

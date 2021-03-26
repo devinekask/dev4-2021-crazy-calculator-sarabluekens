@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from "prop-types";
-
+import styles from "./Slider.module.css";
 
 const Slider = ({ value, onNumberChange}) => {
     return (  
-        <>
-            <label htmlFor="number">What is your unluckiest number?</label>
+        <div className ={styles.formItem}>
+            <label htmlFor="number" >What is your unluckiest number?</label> <br/>
             <input type="range" min="0" max="99" value={value} onChange={(e) => onNumberChange(e.target.value) } />
-            <p>{value}</p>
-        </>
+            <span className ={styles.formLabel}>{value}</span>
+            <br/>
+        </div>
 
     );
 }

@@ -1,0 +1,32 @@
+@value tokens: "./tokens.module.css";
+@value titleFont, subtitleFont, mediumFont, formFont, smallFont from tokens;
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cantarell&display=swap');
+
+.title {
+  font-size: titleFont ;
+  font-family: 'Syne Mono', monospace;
+  text-align: center;
+}
+
+.subTitle {
+  font-family: 'Cantarell', cursive;
+  text-align: start;
+  font-size: subtitleFont;
+}
+
+.formTitle {
+  font-family: 'Syne Mono', monospace;
+  font-size: mediumFont;
+}
+
+.formText {
+  font-family: 'Syne Mono', monospace;
+  font-size: formFont;
+  padding: .5rem;
+}
+
+.footer {
+  font-family: 'Syne Mono', monospace;
+  font-size: smallfont;
+}

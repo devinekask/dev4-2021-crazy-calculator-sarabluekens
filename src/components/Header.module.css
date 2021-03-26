@@ -1,0 +1,16 @@
+@value tokens: "../style/tokens.module.css";
+@value mediumFont, primaryColor from tokens;
+
+.header {
+   composes: title from "../style/layouts.module.css";
+   composes: formTitle from "../style/typo.module.css";
+   text-align: center;
+}
+
+.headerTitle {
+    display: none;
+}
+
+.headerSubtitle {
+    margin-top: 3rem;
+}

@@ -1,22 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "../consts/index";
-// import styles from "./NavBar.module.css";
+
+import styles from "./NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <nav>
-      <ul >
-      <li>
+    <nav className ={styles.nav}>
+      <ul className ={styles.navList}>
+        <li className ={styles.navItem}>
           <NavLink
+            className ={styles.navLink}
+            activeClassName ={styles.active}
             exact to={ROUTES.HOME}
-
           >
             Home
           </NavLink>
         </li>
-        <li>
+        <li className ={styles.navItem}>
           <NavLink
+           className ={styles.navLink}
+           activeClassName ={styles.active}
             to={ROUTES.CALCULATOR}
             exact
 
@@ -24,8 +28,11 @@ const NavBar = () => {
             Calculator
           </NavLink>
         </li>
-        <li>
+        <li className ={styles.navItem}>
+          
           <NavLink
+           className ={styles.navLink}
+           activeClassName ={styles.active}
            to={ROUTES.ALL}
           >
             All Answers

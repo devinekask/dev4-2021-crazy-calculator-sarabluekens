@@ -1,21 +1,33 @@
 @value tokens: "../style/tokens.module.css";
-@value fontSizeL, primaryColor from tokens;
+@value navFont, secondaryColor from tokens;
 
-.list {
+  
+
+
+.navList {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
+  
 }
 
-.link {
+.navItem {
+  font-family: 'Syne Mono', monospace;
   text-decoration: none;
-  font-size: fontSizeL;
+  font-size: navFont;
   padding: 0.5rem;
+  
+}
+
+.navLink {
+  background-color: primaryColor;
+  color: secondaryColor;
+  text-decoration: none;
 }
 
 .active {
-  background-color: primaryColor;
-  color: white;
+
   text-decoration: underline;
+  text-underline-offset: .5rem;
 }

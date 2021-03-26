@@ -1,0 +1,15 @@
+@value titleFont: 8rem;
+@value subtitleFont: 2rem;
+@value mediumFont: 3rem;
+@value smallFont: 1rem;
+@value navFont: 1.5rem;
+@value formTitleFont: 2rem;
+@value formFont: 1.5rem;
+
+
+
+@value accentColor:  rgb(192, 112, 37);
+@value primaryColor: rgb(224, 221, 207);
+@value secondaryColor: rgb(221, 202, 181);
+@value backgroundColor: rgb(1, 1, 14);
+

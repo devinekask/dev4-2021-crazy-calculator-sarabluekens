@@ -1,23 +1,24 @@
 import React from 'react';
 import RadioOption from './RadioOption';
 import PropTypes from "prop-types";
+import styles from "./Radio.module.css";
 
 
-const Radio = ({list, value, onRadioChange}) => {
+const Radio = ({list, onRadioChange}) => {
     return (  
-        <>
-        <label htmlFor="fear"> True horror: select your biggest fear</label> 
+        <div className ={styles.formItem}>
+        <label htmlFor="fear" > True horror: select your biggest fear</label> <br/>
            {list.map(item => 
-                <RadioOption key={item.index} label={item.label} index={item.index} value={value} description={item.description} onRadioChange={onRadioChange}/>
+                <RadioOption key={item.index} label={item.label}  index={item.index} description={item.description} onRadioChange={onRadioChange}/>
 
             )}
         
-        </>
+        </div>
     );
 }
 Radio.propTypes = {
     list : PropTypes.array.isRequired,
     value : PropTypes.string,
-    onRadioChange : PropTypes.func
+    onRadioChange : PropTypes.func.isRequired
 }
 export default Radio;

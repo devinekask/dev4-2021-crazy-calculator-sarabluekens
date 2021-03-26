@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import styles from "./Radio.module.css";
 
-
-const RadioResult = ({locationIndex, locations}) => {
+const RadioResult = ({locationIndex, locations, title}) => {
     return (  
         <>
-            <p>You will die at {locations[locationIndex]}</p>
+        <h3>{title}</h3>
+        <p className={styles.output}> In {locations[locationIndex]}</p>
            
         </>
     );
@@ -13,6 +14,7 @@ const RadioResult = ({locationIndex, locations}) => {
  
 RadioResult.propTypes = {
     locationIndex : PropTypes.string,
+    title : PropTypes.string.isRequired,
     locations : PropTypes.array.isRequired
 }
 export default RadioResult;

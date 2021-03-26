@@ -1,12 +1,13 @@
 import React from "react";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
     return (
-        <footer className = "footer">
-            <h1 className="footer__title"> Footer</h1>
-            <p className="footer__title--Sub"> Devine 2020-2021</p>
-            <p className="footer__title--Sub"> Development 4 - Crazy Calculator</p>
-            <p className="footer__title--Sub"> Sara Bluekens</p>
+        <footer className ={styles.footer}>
+            <h1 className ={styles.footerTitle}> Footer</h1>
+            <p className ={styles.footerText}> Devine 2020-2021</p>
+            <p className ={styles.footerText}> Development 4 - Crazy Calculator</p>
+            <p className ={styles.footerText}> Sara Bluekens</p>
         </footer>
     );
 };

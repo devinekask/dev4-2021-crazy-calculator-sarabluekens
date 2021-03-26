@@ -1,0 +1,29 @@
+@value tokens: "../style/tokens.module.css";
+@value formTitleFont, formFont, primaryColor from tokens;
+
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.styling {
+    color: white;
+    width: 30vw;
+    justify-self: center;
+    padding-left: 3rem;
+}
+
+.title {
+    composes: subTitle from "../style/typo.module.css";
+    font-size: formTitleFont;
+    color: primaryColor;
+    align-self: flex-start;
+}
+
+.form {
+    align-items: center;
+    text-align: start;
+}

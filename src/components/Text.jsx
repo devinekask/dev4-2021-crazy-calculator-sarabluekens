@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from "prop-types";
-
+import styles from "./Text.module.css";
 
 const Text = ({value, onNameChange}) => {
     return (  
-        <>
-            <label>Name: </label>
-            <input  type="text" id="name" value={value} onChange={(e) => onNameChange(e.target.value)} placeholder="First Name"   />
-        </>
+        <div className ={styles.formItem}>
+            <label className ={styles.formLabel}>Name: </label>
+            <input   type="text" id="name" value={value} onChange={(e) => onNameChange(e.target.value)} placeholder="First Name"   />
+            <br/>
+        </div>
     );
 }
 Text.propTypes = {

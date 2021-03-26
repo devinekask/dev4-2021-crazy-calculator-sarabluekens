@@ -1,0 +1,17 @@
+@value tokens: "../style/tokens.module.css";
+@value largeFont, primaryColor from tokens;
+
+
+.homeTitle {
+    composes: title from "../style/layouts.module.css";
+    composes: title from "../style/typo.module.css";
+    padding-top: 7rem;
+    margin: 0 auto;
+    width: 40rem;
+ }
+
+ .homeText {
+    composes: title from "../style/layouts.module.css";
+    composes: subTitle from "../style/typo.module.css";
+    text-align: center;
+ }
