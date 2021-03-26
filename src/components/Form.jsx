@@ -1,68 +1,92 @@
-import React from 'react';
-import Option from './Option';
-import kitten from '../assets/img/kitten.png';
+import React, { useState } from 'react';
+import Text from './Text';
+import Slider from './Slider';
+import Radio from './Radio';
+import Dropdown from './Dropdown';
+import { reactComponent as Kitten } from '../assets/img/kitten.png';
+
 
 const Form = () => {
+    const [number, setNumber] = useState(0); 
+    const [name, setName] = useState("");
+    const [killDropdown, setKillDropdown] = useState("Make a choice")
+    const [dumpDropdown, setDumpDropdown] = useState("Make a choice")
+    const [keepDropdown, setKeepDropdown] = useState("Make a choice")
 
-    const handleChangeNumber = () => {
+    const kill = [
+        {
+            points : 0,
+            description : "Make a choice"
+            
+        },
+        {
+            points : 1,
+            description : "Six weeks old puppy"
+        },
+        {
+            points : 2,
+            description : "Baby Bambi"
+        },
+        {
+            points : 3,
+            description: "Three legged squirrel"
+        }
+    ]
 
-    }
+    const dump = [
+        {
+            points : 0,
+            description : "Make a choice"
+        },
+        {
+            points : 1,
+            description : "Two months old kitten"
+        },
+        {
+            points : 2,
+            description : "Foal you got as a birthay gift"
+        },
+        {
+            points : 3,
+            description: "Polka Dot Stingray"
+        }
+    ]
+
+    const keep = [
+        {
+            points : 0,
+            description : "Make a choice"
+        },
+        {
+            points : 1,
+            description : "Flesheating bacteria"
+        },
+        {
+            points : 2,
+            description : "Gut worms"
+        },
+        {
+            points : 3,
+            description: "Skin mites"
+        }
+    ]
+
 
     return (
         <section className = "form">
-            <p>Find out how you die</p>
+           <h2>Fill in this form and discover your faith, if you dare...</h2>
+
             <form>
-                <label>Name: </label>
-                <input  type="text" id="name" name="name"placeholder="First Name"   />
-               
-                <label htmlFor="number">What is your unluckiest number?</label>
-                <input type="number" min="0" max="9999" value="1" />
-               
-                <br/>
-                <label htmlFor="fear"> True horror</label> 
-
-                <br/>
-                <input type="radio" id="dark" name="fear" value="dark"/>
-                <label htmlFor="dark">The dark</label><br/>
-
-                <input type="radio" id="needles" name="fear" value="needles"/>
-                <label htmlFor="needles">Needles</label><br/>
-
-                <input type="radio" id="space" name="fear" value="space"/>
-                <label htmlFor="space">Thight spaces</label><br/>
-
-                <input type="radio" id="spspidersace" name="fear" value="spiders"/>
-                <label htmlFor="spiders">Spiders</label><br/>
-
-                <input type="radio" id="code" name="fear" value="code"/>
-                <label htmlFor="code">"Failed to compile"</label><br/>
-                <p > Keep-Ditch-Kill</p> 
-                <img src={kitten} alt="Two months old kitten" width="54"/>
-
-                <label htmlFor="kill"> I will Kill my: </label>
-                <select name="kill" id="kill">
-                    <option value="" disabled selected>Make a choice</option>
-                    <option value="puppy">Six weeks old puppy</option>
-                    <option value="bambi">Baby Bambi</option>
-                    <option value="squirrel">Three legged squirrel</option>
-                </select>
-
-                <label htmlFor="ditch"> Dump my: </label>
-                <select name="dump" id="dump">
-                    <option value="" disabled selected>Make a choice</option>
-                    <Option item="kitten" url={kitten} description="Two months old kitten" />
-                    <option value="kitten">Two months old kitten</option>
-                    <option value="foal">First ever foal</option>
-                    <option value="fish">Polka Dot Stingray</option>
-                </select>
-
-                <label htmlFor="keep">And I want to keep my: </label>
-                <select name="keep" id="keep">
-                    <option value="" disabled selected>Make a choice</option>
-                    <option value="flesh">Flesheating bacteria</option>
-                    <option value="worms">Gut worms</option>
-                    <option value="mites">Skin mites</option>
-                </select>
+                < Text value={name} onNameChange={(value => setName(value))}/>
+                <p>Hello There: {name}</p>
+                < Slider value={number} onNumberChange={(value) => setNumber(value)}  />
+                < Radio />
+                < Dropdown type="kill" label="I will Kill my:" list={kill} value={killDropdown} onDropdownChange={(value) => setKillDropdown(value)} />
+                <p>Added penaltypoints: + {killDropdown}</p>
+                < Dropdown type="dump" label=", dump my:" list={dump} value={dumpDropdown} onDropdownChange={(value) => setDumpDropdown(value)} />
+                <p>Added penaltypoints: + {dumpDropdown}</p>
+                < Dropdown type="keep" label="And I want to keep my:" list={keep} value={keepDropdown} onDropdownChange={(value) => setKeepDropdown(value)} />
+                <p>Added penaltypoints: + {keepDropdown}</p>
 
             </form>
         </section>
