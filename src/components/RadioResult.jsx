@@ -1,9 +1,9 @@
 import React from 'react';
 
-const RadioResult = ({result}) => {
+const RadioResult = ({locationIndex, locations}) => {
     return (  
         <>
-            <p>You will die at {result}</p>
+            <p>You will die at {locations[locationIndex]}</p>
            
         </>
     );

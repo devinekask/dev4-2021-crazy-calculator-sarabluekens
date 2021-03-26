@@ -6,16 +6,16 @@ import Dropdown from './Dropdown';
 import SliderResult from './SliderResult';
 import DropdownResult from './DropdownResult';
 import RadioResult from './RadioResult';
+import TextResult from './TextResult';
 
 
-const Calculator = () => {
+const Calculator = ({ways, locations}) => {
     const [number, setNumber] = useState(0); 
     const [name, setName] = useState(""); 
     const [killDropdown, setKillDropdown] = useState(0);
     const [dumpDropdown, setDumpDropdown] = useState(0);
     const [keepDropdown, setKeepDropdown] = useState(0);
     const [radio, setRadio] = useState();
-    const locations = [ "park", "toilet", "bed", "sbg"];
 
     const kill = [
         {
@@ -79,42 +79,52 @@ const Calculator = () => {
         {
             label : "dark",
             description : "The dark",
-            result : 1
+            index : 0
             
         },
         {
             label : "needles",
             description : "Needles",
-            result : 2
+            index : 1
         },
         {
             label : "space",
             description : "Thight spaces",
-            result : 3
+            index : 2
         },
         {
             label : "spiders",
             description : "Spiders",
-            result : 4
+            index : 3
         },
         {
             label : "code",
             description : " `Failed to compile`",
-            result : 5
+            index : 4
         }
     ]
 
-    const age = (number%2)=== 0 ? number * 6/3.5239 : number * 8/5.231 + 28 ;
+    const amount = parseInt(number);
+    const age = (amount%2)=== 0 ? amount * 6/3.5239 : amount * 8/5.231 + 28 ;
 
+    let wayIndex;
     const points = parseInt(killDropdown) + parseInt(keepDropdown) + parseInt(dumpDropdown);
-    console.log(points);
-    const index = points;
-
    
-
-
-   
+    if (name === 'Benoit'|| name === 'benoit' || name === 'simon' || name === 'Simon') {
+        wayIndex = 4;
+    }
+    else if(points < 3) {
+        wayIndex = 0;
+    }
+    else if (points >= 3 && points < 5){
+        wayIndex = 1;
+    }
+    else  if( points >= 5) {
+        wayIndex = points -4;
+    }
     
+    let locationIndex = radio;
+
     return (
         <>
             <section className = "form">
@@ -133,13 +143,12 @@ const Calculator = () => {
             </section>
 
             <section className = "form">
-                <h2> Hello there, {name} </h2>
+                <TextResult name={name}/>
                 <p>Are you ready to face <span>death?</span></p>
-               
-                <SliderResult title="Age of death: " age={age}/>
-                <RadioResult result={radio} />
-                <DropdownResult  />
-                <p> {locations[index]}</p>
+                <SliderResult title="Age of death: " age={Math.floor(age)} number={amount}/>
+                <RadioResult locations={locations} locationIndex={locationIndex} />
+                <DropdownResult ways={ways} index={wayIndex} />
+             
             </section>
         </>
     );

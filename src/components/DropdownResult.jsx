@@ -1,10 +1,9 @@
 import React from 'react';
 
-const DropdownResult = ({points, location}) => {
+const DropdownResult = ({ways, index}) => {
     return (  
         <>
-        <p>Your score = {points}</p>
-        <p>You die at {location}</p>
+        <p> YOU WILL DIE BECAUSE {ways[index]}</p>
         </>
     );
 }

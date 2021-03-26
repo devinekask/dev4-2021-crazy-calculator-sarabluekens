@@ -6,7 +6,7 @@ const Radio = ({list, value, onRadioChange}) => {
         <>
         <label htmlFor="fear"> True horror: select your biggest fear</label> 
            {list.map(item => 
-                <RadioOption key={item.label} label={item.label} description={item.description} value={value} onRadioChange={onRadioChange}/>
+                <RadioOption key={item.index} label={item.label} index={item.index} description={item.description} value={value} onRadioChange={onRadioChange}/>
             )}
         </>
     );

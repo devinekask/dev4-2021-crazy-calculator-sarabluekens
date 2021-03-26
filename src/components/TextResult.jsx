@@ -1,8 +1,8 @@
 import React from 'react';
 
-const TextResult = () => {
+const TextResult = ({name}) => {
     return (  
-        <p>test</p>
+        <h2> Hello there, {name} </h2>
     );
 }
  
