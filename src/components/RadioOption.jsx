@@ -1,9 +1,9 @@
 import React from 'react';
 
-const RadioOption = ({value, description}) => {
+const RadioOption = ({value, description, onRadioChange}) => {
     return (  
         <>
-            <input type="radio" id={value} name="fear" value={value}/>
+            <input type="radio" id={value} name="fear" value={description} onChange={(e) => onRadioChange(e.target.value) }/>
             <label htmlFor={value}>{description}</label><br/>
         </>
     );

@@ -1,8 +1,11 @@
 import React from 'react';
 
-const RadioResult = () => {
+const RadioResult = ({result}) => {
     return (  
-        <p>test</p>
+        <>
+            <p>You will die at {result}</p>
+           
+        </>
     );
 }
  
